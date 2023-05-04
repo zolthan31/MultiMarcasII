@@ -11,11 +11,11 @@ namespace MultiMarcas.APIv5.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductController : ControllerBase    {
+    public class ProductsController : ControllerBase    {
          
         private readonly DataContext _context;
 
-         public ProductController(DataContext context) 
+         public ProductsController(DataContext context) 
          {
             _context = context;
 
@@ -30,7 +30,8 @@ namespace MultiMarcas.APIv5.Controllers
         [HttpGet("{id}")]
         public Product GetById(int id)
         {
-            return _context.Produtos.FirstOrDefault(produto => produto.ProductId == id);
+            return _context.Produtos.FirstOrDefault(produto => 
+            produto.ProductId == id);
         }
 
         [HttpPost]

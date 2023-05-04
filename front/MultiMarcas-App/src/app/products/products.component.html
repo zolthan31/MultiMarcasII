@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="secao">
+    <h3 class="text-center"><b>Destaques do dia!</b></h3>
+    <h5 class="text-center">Aproveite as super opções que separamos para você:</h5>
+  </div>
+
+  <hr />
+
+  <div>
+    <div class="col-sm-2">
+      <div class="card">
+        <img class="card-img-top" src="/assets/ofertas/1/imagem7.png">
+        <div class="card-block" *ngFor="let produto of products">
+          <h5 class="card-title">{{produto.peca}}</h5>
+          <p class="marca">Marca: {{produto.marca}}</p>
+          <p class="card-text">Tamanhos: {{produto.tamanhos}}</p>
+          <p class="preco">{{produto.valor}}</p>
+          <a href="#" class="btn btn-outline-success btn-sm">Ver produto</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+</div>
