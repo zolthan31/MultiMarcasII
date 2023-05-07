@@ -9,18 +9,25 @@ import { TopoComponent } from './topo/topo.component';
 import { ProductsComponent } from './products/products.component';
 import { RodapeComponent } from './rodape/rodape.component';
 
+import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { NavComponent } from './nav/nav.component';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
       TopoComponent,
       ProductsComponent,
-      RodapeComponent
+      RodapeComponent,
+      NavComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    CollapseModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

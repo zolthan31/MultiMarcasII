@@ -1,18 +1,8 @@
-div {
-  background-color: whitesmoke
+thead {
+  background-color: #000;
+  color: #FFF;
 }
 
-
-p {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #000;
+td button {
+  margin-right: 3px;
 }
-
-h5 {
-  color: rgb(82, 184, 35);
-}
-
-hr {
-  border: solid;
-}
-

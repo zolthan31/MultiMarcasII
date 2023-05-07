@@ -1,25 +1,67 @@
-<div class="container">
-
-  <div class="secao">
-    <h3 class="text-center"><b>Destaques do dia!</b></h3>
-    <h5 class="text-center">Aproveite as super opções que separamos para você:</h5>
-  </div>
-
-  <hr />
-
-  <div>
-    <div class="col-sm-2">
-      <div class="card">
-        <img class="card-img-top" src="/assets/ofertas/1/imagem7.png">
-        <div class="card-block" *ngFor="let produto of products">
-          <h5 class="card-title">{{produto.peca}}</h5>
-          <p class="marca">Marca: {{produto.marca}}</p>
-          <p class="card-text">Tamanhos: {{produto.tamanhos}}</p>
-          <p class="preco">{{produto.valor}}</p>
-          <a href="#" class="btn btn-outline-success btn-sm">Ver produto</a>
-        </div>
-      </div>
+<div class="banner">
+  <img src="/assets/banners/img_1.jpg"
+  [style.width.px]="widthImg1"
+  >
+</div>
+<h2>Produtos</h2>
+<hr />
+  <div class="form-inline">
+    <div class="form-group mb-2">
+      <label class="mr-2">Filtro:</label>
+      <input
+       type="text"
+       class="form-control mr-2"
+       placeholder="buscar"
+      [style.width.px]="widthImg2"
+      [(ngModel)]="filtroLista"
+      >
     </div>
   </div>
-  <hr />
-</div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th>
+          <button type="button" class="btn btn-outline-light btn-sm"
+          (click)="alterarImagem()">
+            {{!showImage ? 'exibir' : 'ocultar'}}
+          </button>
+        </th>
+        <th>#</th>
+        <th>Peça</th>
+        <th>Marca</th>
+        <th>Valor</th>
+        <th>Tamanhos</th>
+        <th>Qtd Produtos</th>
+        <th>Opções</th>
+      </tr>
+    </thead>
+    <tbody *ngIf="products && products.length">
+      <tr *ngFor="let produto of productsFilter">
+        <td>
+          <img [collapse]="!showImage"
+               [isAnimated]="true"
+          src="/assets/{{produto.imagemURL}}"
+          [style.width.px]="widthImg"
+          [style.margin.px]="marginImg"
+           >
+        </td>
+        <td><b>{{produto.productId}}</b></td>
+        <td><b>{{produto.peca}}</b></td>
+        <td><b>{{produto.marca}}</b></td>
+        <td><b>{{produto.valor}}</b></td>
+        <td><b>{{produto.tamanhos}}</b></td>
+        <td><b>{{produto.quantidade}}</b></td>
+        <td>
+          <button type="button" class="btn btn-primary btn-sm mr-2">Editar</button>
+          <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+   <tfoot *ngIf="!products.length">
+    <tr>
+      <td colspan="8" class="text-center">
+        <h4>Nenhum Produto Encontrado!!</h4>
+      </td>
+    </tr>
+   </tfoot>
+  </table>
